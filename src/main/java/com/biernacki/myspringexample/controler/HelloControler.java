@@ -60,6 +60,8 @@ public class HelloControler
         logger.info("users from db: [{}]",users);
 
         modelAndView.addObject("allUsers",users);
+        modelAndView.addObject("old","empty");
+
         modelAndView.setViewName("home/users");
         return modelAndView;
 
