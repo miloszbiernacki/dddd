@@ -18,10 +18,29 @@ public class HelloControler {
     {
 
         logger.info("name: {}",name);
-
         modelAndView.addObject("user",name);
         modelAndView.setViewName("home");
         return modelAndView;
+    }
+
+
+    @GetMapping("/dane")
+    public ModelAndView my2(ModelAndView modelAndView,
+                            @RequestParam(value = "imie" , defaultValue = "mil") String name,
+                            @RequestParam(value = "nazwisko", defaultValue = "biei") String surname  ,
+                            @RequestParam(value = "wiek", defaultValue = "15") String wiek   )
+    {
+        logger.info("name: {}",name);
+        logger.info("nazwisko: {}",surname);
+        logger.info("wiek: {}",wiek);
+
+        modelAndView.addObject("user",name);
+        modelAndView.addObject("nazwisko",surname);
+        modelAndView.addObject("wiek",wiek);
+        modelAndView.setViewName("dane");
+        return modelAndView;
+
+
     }
 
 }
